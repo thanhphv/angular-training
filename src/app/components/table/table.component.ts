@@ -16,9 +16,9 @@ import { AccountService } from 'src/app/core/services/account.service';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  @Input() columns: any[] = [];
+  @Input() columns: any;
   @Input() isLoading: boolean = false;
-  @Input() rows: Account[] = [];
+  @Input() rows: any[] = [];
   @Input() totalRows: any;
   @Input() paginator: any;
   @Output() deleteItem = new EventEmitter<any>();
