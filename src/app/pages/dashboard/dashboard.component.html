@@ -1,0 +1,25 @@
+<div id="application">
+  <div class="container">
+    <h1>Application</h1>
+
+    <div class="header">
+      <div class="search">
+        <label for="select-search">Search by :</label>
+
+        <select id="select-search" [(ngModel)]="selectedOption">
+          <option *ngFor="let option of options">{{option.name}}</option>
+        </select>
+        <input type='text' [(ngModel)]="searchStr" (change)="search()">
+      </div>
+      <button type="button" class="btn" data-bs-toggle="modal" [routerLink]="[ '/account/create' ]">
+        <i class="material-icons">&#xE147;</i> Add new acount
+      </button>
+    </div>
+    <div class="wrapper">
+      <app-table [columns]="listColumns" [isLoading]="isLoading" [rows]=data [totalRows]="total" [paginator]="paginator"
+        (deleteItem)="deleteAccount($event)" (onPageChange)="onPageChange($event)"></app-table>
+    </div>
+
+  </div>
+
+</div>

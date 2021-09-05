@@ -1,0 +1,91 @@
+input{
+  width: 5%
+}
+.table{
+  width: 100%;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  overflow-y: auto;
+  height: 400px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+  }
+  tbody{
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+thead th {
+  background-color: rgb(23, 37, 230);
+      color: #fff;
+      font-size: 15px;
+  position: sticky;
+  top: 0;
+  height: 20px;
+}
+
+.edit{
+  color: #ffc107;
+  cursor: pointer;
+}
+
+.delete{
+  color: #f44336;
+  cursor: pointer;
+}
+
+td i:hover{
+  opacity: .5;
+}
+
+.action{
+  width: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tr-bold{
+  background-color: rgba(190, 200, 243, 0.712)
+}
+
+.bottom{
+  text-align:-webkit-right;
+}
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 30%;
+  font-size: 14px;
+}
+
+li{
+  list-style: none;
+  padding: 0 10px
+}
+
+.pagination input{
+    width: 6%;
+}
+
+.page-link{
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-link:hover{
+  background-color: #ccc
+}
+
+
