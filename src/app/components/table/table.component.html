@@ -6,14 +6,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="
+      <tr *ngFor="
           let row of rows | slice: startIndex:endIndex;
           let i = index;
           let o = odd
-        "
-        [ngClass]="{ 'tr-bold': o }"
-      >
+        " [ngClass]="{ 'tr-bold': o }">
         <td *ngFor="let column of columns">
           <div [ngSwitch]="column.field">
             <ng-container *ngSwitchCase="'stt'">
@@ -26,12 +23,8 @@
               {{ row.account_number }}
             </ng-container>
             <ng-container *ngSwitchCase="'action'">
-              <a class="edit" title="Edit" (click)="openEditForm(row._id)"
-                ><i class="material-icons">&#xE254;</i></a
-              >
-              <a class="delete" title="Delete" (click)="onDelete(row._id)"
-                ><i class="material-icons">&#xE872;</i></a
-              >
+              <a class="edit" title="Edit" (click)="openEditForm(row._id)"><i class="material-icons">&#xE254;</i></a>
+              <a class="delete" title="Delete" (click)="onDelete(row._id)"><i class="material-icons">&#xE872;</i></a>
             </ng-container>
             <ng-container *ngSwitchDefault>
               {{ row[column.field] }}
@@ -43,31 +36,22 @@
   </table>
   <div class="bottom">
     <ul class="pagination">
-      <li (click)="changePage(0)"><a class="page-link"> << </a></li>
-      <li (click)="changePage(paginator.page - 1 < 0 ? 0 : paginator.page - 1)">
-        <a class="page-link"> < </a>
+      <li (click)="changePage(0)"><a class="page-link">
+          << </a> </li> <li (click)="changePage(paginator.page - 1 < 0 ? 0 : paginator.page - 1)">
+            <a class="page-link">
+              < </a> </li> <ng-container *ngFor="let i of getArrayLength(paginator.totalRecords); let n = index">
+      <li *ngIf="shouldShowItem(n)">
+        <a class="page-link" (click)="changePage(n + 1)"
+          [ngClass]="{ 'tr-bold': n === paginator.page - 1 }">{{ n + 1 }}</a>
       </li>
-      <ng-container
-        *ngFor="let i of getArrayLength(paginator.totalRecords); let n = index"
-      >
-        <li *ngIf="shouldShowItem(n)">
-          <a
-            class="page-link"
-            (click)="changePage(n + 1)"
-            [ngClass]="{ 'tr-bold': n === paginator.page - 1 }"
-            >{{ n + 1 }}</a
-          >
-        </li>
       </ng-container>
-      <li
-        (click)="
+      <li (click)="
           changePage(
             paginator.page + 1 > getArrayLength(paginator.totalRecords)
               ? getArrayLength(paginator.totalRecords)
               : paginator.page + 1
           )
-        "
-      >
+        ">
         <a class="page-link">></a>
       </li>
       <li (click)="changePage(getArrayLength(paginator.totalRecords))">
