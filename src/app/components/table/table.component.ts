@@ -7,8 +7,8 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Account } from 'src/app/core/model/account.model';
-import { AccountService } from 'src/app/core/services/account.service';
+import { Account } from '../../../app/core/model/account.model';
+import { AccountService } from '../../../app/core/services/account.service';
 
 @Component({
   selector: 'app-table',
